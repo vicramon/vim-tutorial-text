@@ -7,13 +7,14 @@ should know for day-to-day use actually coding with Vim.
 Learn more about Vim at http://vicramon.com/vim. You can also submit questions, comments and
 feedback there.
 
+
 ==== Introduction ====
 
 Vim is great for writing code, but what surpised me most about Vim is that it's FUN. It's really
 exciting to see a whole paragraph disappear with 3 keys, or to play a macro that does a ton of work
 with with a single keystroke.
 
-Now that I know Vim, I couldn't imagine writing code without it. I hope that you will feel the same
+Now that I know Vim I couldn't imagine writing code without it. I hope that you will feel the same
 way once you become a Vim expert.
 
 I created this tutorial for a few reasons. First I thought I could improve upon existing tutorials
@@ -31,8 +32,13 @@ repetetively, so for each command you learn, PLAY WITH IT. Experiment. See what 
 behaves. It's easier to remember all of these commands than you might think if you can integrate
 them into your muscle memmory.
 
-After some commands I put a helpful way to remember the command like this: (u for up). These may
-help you bootstrap your Vim memory.
+
+==== Check out the Manual ====
+
+Vim comes with an incredibly detailed built in manual. Just type :help <command> to get all the
+inofrmation about a command. The manual will open in a horizontal split. Just type :q<enter> to
+close the manual.
+
 
 ==== Basic Terminology ====
 
@@ -42,6 +48,7 @@ line".
 
 
 Let's begin!
+
 
 ==== Table of Contents ====
 
@@ -54,15 +61,9 @@ Chapter 6: Replace & Substitute
 Chapter 7: Search & Options
 Chapter 8: Yank & Paste
 Chapter 9: Selections
-Chapter 10: Saving & Quitting
-Chapter 11: Opening Files
-Chapter 12: Custom Mappings
-Chapter 13: Settings
-Chapter 14: Color Schemes
-
-==== Appendix ====
-
-Chapter 12: The Vim Manual
+Chapter 10: File Management
+Chapter 11: Custom Settings
+Chapter 12: Color Schemes
 Chapter 13: Additional Resources
 Chapter 14: Plugins
 Chapter 15: Tmux
@@ -399,9 +400,12 @@ where you need to check each match and choose whether or not to make the replace
 
 #todo: visual selection substitute
 
+
 ----------------------------------------------------------------------------------------------------
 
+
 Chapter 7: Search & Options
+
 
 ==== Basic Search ====
 
@@ -422,6 +426,7 @@ Cycle through matches:
 n go to next match
 N go to previous match
 
+
 ==== A Primer on Options =====
 
 You can turn an option on like this:
@@ -439,6 +444,7 @@ Other options take a parameter:
 You can inquire about the current state of an option:
 
 :set <option>?
+
 
 ==== Search Options ====
 
@@ -462,11 +468,18 @@ Unfortunately, both of these settings default to off. You can put them in your v
 you don't have to type them every time you start Vim. We'll cover vimrc's in a later chapter.
 
 
+==== Search with * ====
+
+* will search for the word under the cursor. You can use n and N to cycle through the results.
+
+
 ----------------------------------------------------------------------------------------------------
+
 
 Chapter 8: Yank & Put
 
 Vim's yank and put are like copy and paste.
+
 
 ==== Basic Yank ====
 
@@ -589,6 +602,7 @@ line until you hit <escape>.
 
 ----------------------------------------------------------------------------------------------------
 
+
 Chapter 10: File Management
 
 ==== Saving ====
@@ -597,6 +611,7 @@ If you've made changes to a file you will see a [+] symbol next to the name of t
 status line.
 
 To save your changes to a file type :w and hit enter (w for write).
+
 
 ==== Quitting ====
 
@@ -611,18 +626,36 @@ into :wq or :x. They both do the same thing. I prefer :x because it's one less c
 
 ==== Opening a File & Splits ====
 
-:edit <filename>, or :e for short, will open the file and replace your current window with that
-file.
+:edit <filename>, or :e for short, will open the file in your current window
 
-:split <filename>, or :sp for short, will open the file in a horizontal split.
+:split <filename>, or :sp, will open the file in a horizontal split.
 
-:vsplit <filename>, or :vs for short, will open the file in a vertical split.
+:vsplit <filename>, or :vs, will open the file in a vertical split.
 
 You can open as many splits as you want.
 
 To switch from one split to another type control-w <direction>. Direction can be h, j, k, or l.
 
 To move the arrangement of a split, type control-w <DIRECTION>, where direction is H, J, K, or L.
+
+
+==== Tabs ====
+
+:tabedit <filename>, or :tabe will open a file in a new tab.
+
+Tabs are visible across the top of the screen.
+
+gt will take you to the next tab
+gT will take you to the previous tab
+
+
+==== Opening a Directory ====
+
+:e <path/to/directory> will open a directory
+:e .  will open the current directory
+
+While in the directory view use j and k to move up and down file names, and enter to open the file
+or directory under the cursor.
 
 
 ==== Renaming a File ====
@@ -638,16 +671,88 @@ See Eunuch: https://github.com/tpope/vim-eunuch
 
 ----------------------------------------------------------------------------------------------------
 
+Chapter 11: Custom Settings
+
+
+==== Custom Mappings ====
+
+Vim allows you to map any key to any other key. For example:
+
+:map x :echo 'hi'<cr>
+
+If you type that then hit x you will see 'hi' printed on the command line. We don't want to keep
+this mapping, so let's get rid of it.
+
+:unmap x
+
+When mapping commands you should almost always prefix the mapping with 'nore', which stands for
+non-recursive. This means that the mapping will look to the true vim commands for the sequence it's
+using instead of looking at another vim mapping. This prevents any unwanted recursion or une in mapping
+commands. A typical mapping should look like this:
+
+:noremap <keystroke to map> <keystroke to use>
+
+If you try ":noremap x p", you'll see that x will will do a put. However, if you enter insert mode
+then type x you will see x, not p. That's because mapping defaults to normal mode only. If you want
+to make a mapping specifically for insert mode, you would have to do:
+
+:inoremap <keystroke to map> <keystroke to use>
+
+The same goes for visual mode:
+
+:vnoremap <keystroke to map> <keystroke to use>
+
+In summary we have:
+
+:noremap
+:inoremap
+:vnoremap
+
+And corresponding unmap commands:
+
+:unmap
+:iunmap
+:vunmap
+
+==== Vimrc ====
+
+
+==== Abbreviations ====
+
+:abbrev <abbreviation text> <full text>
+
+
 ----------------------------------------------------------------------------------------------------
 
-Chapter 11: Opening Files
-Chapter 12: Custom Mappings
-Chapter 13: Settings
-Chapter 14: Color Schemes
 
-==== Appendix ====
+Chapter 12: Color Schemes
 
-Chapter 12: The Vim Manual
+
+  - solarized
+  - molokai
+  -
+
+
+----------------------------------------------------------------------------------------------------
+
+
 Chapter 13: Additional Resources
+  - Practical Vim
+  - VimGenius
+  -
+
+
+----------------------------------------------------------------------------------------------------
+
+
 Chapter 14: Plugins
+  - Plugin Manager: pathogen
+  - Eunuch
+  - SuperTab
+  - RailsVim?
+
+----------------------------------------------------------------------------------------------------
+
+
 Chapter 15: Tmux
+  - this is it's own tutorial
