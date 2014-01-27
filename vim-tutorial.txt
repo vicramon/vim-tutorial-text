@@ -165,7 +165,7 @@ The main goal with Vim motions is to get to your desired location with the fewes
 possible. Knowing all of these motions cold will help you accomplish this.
 
 
-------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 CHAPTER 2: Insert Mode
 
@@ -206,7 +206,7 @@ O (that's capital o, not zero) will put you in insert mode on a new line above y
 That's it for insert mode. If you find your pinky getting tired of hitting escape you can use
 control-c or control-[ instead.
 
-------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 CHAPTER 3: Delete
 
@@ -262,7 +262,7 @@ You will most often use dd by itself, or 2dd and 3dd to delete a paragraph or me
 D will delete from your cursor location to the end of the line
 
 
-------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 
 CHAPTER 4: Change
@@ -296,7 +296,7 @@ ct) change till next )
 cta change till next a
 
 
-------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 CHAPTER 5: Text Objects
 
@@ -355,7 +355,7 @@ ci} Change inside closest braces {try it}
 Note that if you do ca) instead of ci) then the parentheses will be deleted.
 
 
-------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 Chapter 6: Replace & Substitute
 
@@ -380,13 +380,26 @@ line.
 I use S whenver I need to change an entire line and I'm not at the beginning of that line. The neat
 thing about S is that it respects tab alignment. It's essentially ^C combined into one command.
 
-==== Ex Substitute ====
+==== Primer on Ex Commands ====
 
 Ex commands are when you type : then type a command. If you hit : then start typing you will see
 your text appear on the command line. You can hit <enter> to execute a command or <escape> to get
 out.
 
-------------------------------------------------------------------------------------------------------
+==== Substitute Ex Command ====
+
+:%s/old/new/g will replace "old" with "new" everywhere in your current file.
+
+The g stands for global.
+
+Add c to the end to be prompted before making each change. This is great for search and replace
+where you need to check each match and choose whether or not to make the replacement.
+
+:%s/old/new/gc
+
+#todo: visual selection substitute
+
+----------------------------------------------------------------------------------------------------
 
 Chapter 7: Search & Options
 
@@ -408,7 +421,6 @@ Cycle through matches:
 
 n go to next match
 N go to previous match
-
 
 ==== A Primer on Options =====
 
@@ -450,22 +462,192 @@ Unfortunately, both of these settings default to off. You can put them in your v
 you don't have to type them every time you start Vim. We'll cover vimrc's in a later chapter.
 
 
-------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 Chapter 8: Yank & Put
 
-Ya
+Vim's yank and put are like copy and paste.
 
-------------------------------------------------------------------------------------------------------
+==== Basic Yank ====
 
-------------------------------------------------------------------------------------------------------
+y<motion> will yank that specified text.
+yy will yank the entire line
 
-------------------------------------------------------------------------------------------------------
+Examples:
 
-------------------------------------------------------------------------------------------------------
-Chapter 7: Selections
-Chapter 8: Saving and Quitting
-Chapter 9: Opening Files
-Chapter 10: Custom Mappings
-Chapter 11: Settings
-Chapter 12: Color Schemes
+yw   yank word
+y$   yank to end of line
+2yy  yank the next 2 lines
+
+yt.  yank till .
+yfg  yank to next occurrence of g
+
+==== Basic Put ====
+
+p  put the last yank after the cursor
+P  put the last yank before the cursor
+
+==== Pasting with Registers ====
+
+Vim keeps track of all the things you have recently deleted in the register. Delete a few things, they type :reg to see the register. You will see output like the following:
+
+--- Registers ---
+""   the most recent deleted OR yanked text
+"0   the most recent yanked text
+"1   the second most recent deleted text
+"2   the third most recent deleted text
+"3   etc...
+"4   etc...
+"5   etc...
+"6   etc...
+"7   etc...
+"8   etc...
+"9   etc...
+
+The first register, the " register, is called the unnamed register. It contains your most recent
+delete or yank. If you yank something, then delete something else then this register will be
+overwritten by the delete.
+
+This can create problems because you could yank something, intending to paste it elsewhere, then
+delete some text along the way, then type p expecting to see your paste, and -- whoops -- instead,
+you see what you deleted.
+
+The solution to this is the 0 register. The 0 register will contain your last yank and it won't be
+overwritten by any deletions.
+
+To put from the 0 register, type "0p . Now that's a lot of characters and the 0 key is way in the
+upper right of the keyboard. We can do better than that for something we want to use a lot, so lets
+make a custom mapping for it.
+
+:noremap gp "0p
+
+This will make gp always put from the 0 register. I'll be covering mappings in a later chapter, just
+know that if you feel like something sucks in Vim you can usually make a mapping that fixes it.
+
+
+----------------------------------------------------------------------------------------------------
+
+Chapter 9: Selections
+
+There are three types of selections you can make in Vim: visual, visual line, and visual block.
+Selections are a core feature that you will come to love.
+
+==== Visual Selection ====
+
+Press v to activate visual selection mode, then use motions to expand the selected area.
+
+Once you are a visual selection you can perform operations on the selected text.
+
+d  delete the selected text
+x  same thing
+c  change the selected text
+y  yank the selected text
+
+You will typically use visual selection to select a specific piece of code and yank it. You could
+yank the code with the standard yank command, but doing a visual selection allows you to see exactly
+what you are about to yank.
+
+You can press o while in a visual selection to move the cursor to the other side of the selection
+box. This allows you to expand the selection in the other direction.
+
+==== Visual Line ====
+
+Press shift-v to active visual line selection. Use motions like j, k, }, and { to expand the area of
+the selection.
+
+You can then use the same commands as a visual selection to modify the text.
+
+Visual line is great when you need to to move, delete or yank large portions of text.
+
+Remember that if you need to delete or yank a paragraph (paragraph means all the lines are
+touching) then dap and yap are faster than doing a visual line selection.
+
+==== Visual Block ====
+
+Press control-v to activate visual block selection. Visual block is unique because you can select
+characters across columns.
+
+Use visual-block mode to fixup similar looking text on multipe lines. Consider this text:
+
+htis is a typo
+htis is a typo
+htis is a typo
+htis is a typo
+
+You could use visual block to highlight the "ht" in the first line, then hit 3j, type c, then th,
+then <escape>. This would fix the typo on all of the lines.
+
+The standard selection commands work with visual block:
+
+x or d to delete
+c to change
+y to yank
+
+I to insert text. This is unique to visual block. Note that you will only see your text on the first
+line until you hit <escape>.
+
+
+----------------------------------------------------------------------------------------------------
+
+Chapter 10: File Management
+
+==== Saving ====
+
+If you've made changes to a file you will see a [+] symbol next to the name of the file in the
+status line.
+
+To save your changes to a file type :w and hit enter (w for write).
+
+==== Quitting ====
+
+To quit out of a file, type :q . If you've made changes without saving then Vim will give you the
+error: "No write since last change."
+
+If you want to ignore your changes and not write the file type :q! to get out of the file.
+
+If you want to save your changes and quit, type :w, then :q . Naturally, this can be abbreviated
+into :wq or :x. They both do the same thing. I prefer :x because it's one less character than :wq.
+
+
+==== Opening a File & Splits ====
+
+:edit <filename>, or :e for short, will open the file and replace your current window with that
+file.
+
+:split <filename>, or :sp for short, will open the file in a horizontal split.
+
+:vsplit <filename>, or :vs for short, will open the file in a vertical split.
+
+You can open as many splits as you want.
+
+To switch from one split to another type control-w <direction>. Direction can be h, j, k, or l.
+
+To move the arrangement of a split, type control-w <DIRECTION>, where direction is H, J, K, or L.
+
+
+==== Renaming a File ====
+
+Vim has trouble doing this by itself. It has a :saveas command, but this won't remove the previously
+named file.
+
+Tim Pope wrote plugin called Eunuch which will handle renaming with the :Rename command. I will
+cover plugins in a later chapter.
+
+See Eunuch: https://github.com/tpope/vim-eunuch
+
+
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+
+Chapter 11: Opening Files
+Chapter 12: Custom Mappings
+Chapter 13: Settings
+Chapter 14: Color Schemes
+
+==== Appendix ====
+
+Chapter 12: The Vim Manual
+Chapter 13: Additional Resources
+Chapter 14: Plugins
+Chapter 15: Tmux
