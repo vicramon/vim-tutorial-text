@@ -1,0 +1,471 @@
+Vic Ramon's Vim Tutorial
+------------------------
+
+This is a Vim tutorial that teaches the philosophy of Vim and all the motions and actions that you
+should know for day-to-day use actually coding with Vim.
+
+Learn more about Vim at http://vicramon.com/vim. You can also submit questions, comments and
+feedback there.
+
+==== Introduction ====
+
+Vim is great for writing code, but what surpised me most about Vim is that it's FUN. It's really
+exciting to see a whole paragraph disappear with 3 keys, or to play a macro that does a ton of work
+with with a single keystroke.
+
+Now that I know Vim, I couldn't imagine writing code without it. I hope that you will feel the same
+way once you become a Vim expert.
+
+I created this tutorial for a few reasons. First I thought I could improve upon existing tutorials
+by focusing on the commands and patterns that programmers use most. Second, I wanted to teach people
+more about the philosophy of Vim and how that relates to pleasant and speedy coding. Most of all, I
+wanted to provide a thorough guide to Vim that will be useful to both beginner and intermediate
+Vimmmers alike.
+
+
+==== How To Use this Tutorial ====
+
+When you see a new command immediately practice it in this file. If it's a command that changes
+something just hit u to undo. The only way you will remember all of these commands is to use them
+repetetively, so for each command you learn, PLAY WITH IT. Experiment. See what it does and how it
+behaves. It's easier to remember all of these commands than you might think if you can integrate
+them into your muscle memmory.
+
+After some commands I put a helpful way to remember the command like this: (u for up). These may
+help you bootstrap your Vim memory.
+
+==== Basic Terminology ====
+
+The line at the very bottom of Vim which shoud currently be empty is called the "command line". The
+second to last line at the bottom of Vim, which should have the name this file is called the "status
+line".
+
+
+Let's begin!
+
+==== Table of Contents ====
+
+Chapter 1: Motions
+Chapter 2: Insert Mode
+Chapter 3: Delete
+Chapter 4: Change
+Chapter 5: Text Objects
+Chapter 6: Replace & Substitute
+Chapter 7: Search & Options
+Chapter 8: Yank & Paste
+Chapter 9: Selections
+Chapter 10: Saving & Quitting
+Chapter 11: Opening Files
+Chapter 12: Custom Mappings
+Chapter 13: Settings
+Chapter 14: Color Schemes
+
+==== Appendix ====
+
+Chapter 12: The Vim Manual
+Chapter 13: Additional Resources
+Chapter 14: Plugins
+Chapter 15: Tmux
+
+----------------------------------------------------------------------------------------------------
+
+CHAPTER 1: Motion
+
+Learning all the motions is the first step in mastering Vim. Later, these motions can be combined
+with actions to great effect.
+
+
+==== Basic Motion =====
+
+Let's start with basic motions. Try these out:
+
+h moves you left
+l moves you right
+
+j moves you down (think "Jump Down")
+k moves you up (think "Kick it Up")
+
+You can hold these keys down to keep moving. You can get around a file with hjkl, but it's not very
+efficient, so lets go over a few ways to get around faster.
+
+==== Speedy Motion ====
+
+{ moves you one paragraph up
+} moves you one paragraph down
+
+Now we're screaming! { and } are great for every day use to get around methods quickly.
+
+==== Scrolling ====
+
+control-u scrolls up (u for up)
+control-d scrolls down (d for down)
+
+These may come in handy if you want to jump around this tutorial.
+
+==== Top / Bottom of File ====
+
+gg takes you to the first line in the file
+G takes you to the bottom of a file
+
+==== Line Motion ====
+
+^ moves you to the first character in a line
+0 moves you to the beginning of the entire line (think "0 is the beginning")
+$ moves you to the end of the line (think "the buck stops here")
+
+==== Word Motion ====
+
+w moves you to the first character of the next word (w for word)
+e moves you to the last character of the next word (e for end)
+b moves you to the first character of the previous word (b for beginning)
+
+w, e, and b are good for crusing through words.
+
+Note that you can capitalize any of these and they will skip across special characters. For example,
+E will skip across these (parentheses), whereas e will stop at each special character.
+
+==== Precise motion with f and t ====
+
+The things I've shown you so far are great, but even if you get to a word with e, you still would
+have to use h or l to get to a specific character if it's not at the beginning or end of the word.
+That can add up to a lot of keystrokes.
+
+Precise motion can minimize those keystrokes.
+
+f<character> moves you to the next occurrence of <character> in your current line (think "f is
+find")
+
+Try it on the line above by going to the beginning of the line, then typing "fo". That should take
+you to the "o" in "move".
+
+Cycle through the search results:
+
+; moves you to the next occurrence of the character you searched for.
+, moves you to the previous occurrence of the character you searched for.
+
+Next let's talk about t. t is like f, but it takes you up *till* the character you search for.
+
+t<character> moves you to the spot immediately before the next occurrence of <character> is till")
+
+Examples:
+
+t.
+t)
+ta
+
+f and t are some of the most useful motions. You'll see their true power once we combine them with
+actions in future chapters.
+
+==== Motions Wrap Up ====
+
+The best way to get good at motions is to practice. Play with all the different motion types, and
+soon enough they'll be like second-nature.
+
+The main goal with Vim motions is to get to your desired location with the fewest keystrokes
+possible. Knowing all of these motions cold will help you accomplish this.
+
+
+------------------------------------------------------------------------------------------------------
+
+CHAPTER 2: Insert Mode
+
+Vim is a modal editor, meaning that it has different modes. The mode you're in when you're just
+moving around is called "Normal Mode". To insert new text, we'll need act like a superhero and
+change costumes into... INSERT MODE.
+
+==== Undo / Redo ====
+
+Before we start modifying text, you should know these two things:
+
+u undo
+control-r redo
+
+Now you know how to undo any crazy changes you make to this file. Just hold u until you're back to
+the original. Note that u and control-r only work in normal mode.
+
+
+==== Basic Insert ====
+
+i switches you into insert mode wherever the cursor is.
+a will put you in insert mode one space after the cursor
+<escape> puts you back in normal mode.
+
+You will know that you are in insert mode if you see "-- INSERT --" at the bottom of Vim.
+
+=== Advanced Insert  ====
+
+The cool thing about insert mode is that there are many ways to get into it,
+each of which will put you in insert mode AND move you to the right spot to insert
+code.
+
+I will put you in insert mode at the beginning of a line.
+A will put you in insert mode at the end of a line.
+o will put you in insert mode on a new line (think "open")
+O (that's capital o, not zero) will put you in insert mode on a new line above your current line.
+
+That's it for insert mode. If you find your pinky getting tired of hitting escape you can use
+control-c or control-[ instead.
+
+------------------------------------------------------------------------------------------------------
+
+CHAPTER 3: Delete
+
+Actions are the verbs of Vim -- they actually do things. They can be combined with motions to get
+the exact result you want. Delete is the first action I'll be showing you.
+
+==== Basic Actions =====
+
+x deletes the character under the cursor
+
+==== Delete ====
+
+While x is good for simple deletions, what if you need to delete more things? Enter d.
+
+d<motion> delete
+
+Examples:
+
+dw will delete to a word
+db will delete to the beginning of the word
+d$ will delete to the the end of the line
+d0 will delete to the beginning of the line.
+
+==== Delete with t/f ===
+
+d is extremely powerful when combined when combined with t and f.
+
+df<character> will delete everything from the cursor to (and including) the first occurence of
+<character>.
+
+dt<character> will delete everything from the cursor till the first occurence of <character>.
+
+Examples:
+
+dt. delete till next .
+dt) delete till next )
+dta delete till next a
+
+dt. is a very useulf command when coding.
+
+==== Prepending a Count ====
+
+dd will delete the current line
+
+You can append a count to the front of this command to repeat it on multiple lines.
+
+<count>dd will delete <count> lines
+
+You will most often use dd by itself, or 2dd and 3dd to delete a paragraph or method.
+
+==== Delete to end of line ====
+
+D will delete from your cursor location to the end of the line
+
+
+------------------------------------------------------------------------------------------------------
+
+
+CHAPTER 4: Change
+
+==== Basic Usage ====
+
+Change is like delete, but it puts you in insert mode immediately after doing the delete. This is
+helpful when you want to delete text, then immediatley replace it with something else.
+
+c<motion> will change the text specified by that motion.
+
+Examples:
+
+cw will change a word.
+c$ will change to the end of a line
+c0 will change to the begining of a line
+
+Note: like D with delete, C will also change to the end of a line
+
+==== Using change with t and f ====
+
+Combining c with t and f is one of the most useful commands in Vim.
+
+ct<character> change up till that character
+cf<character> change up to (and including) that character
+
+Examples:
+
+ct. change till next .
+ct) change till next )
+cta change till next a
+
+
+------------------------------------------------------------------------------------------------------
+
+CHAPTER 5: Text Objects
+
+
+==== Basic Usage ====
+
+Text objects are Vim's representation of groups of text.
+
+These are some of the text objects you'll use the most:
+
+a word
+s sentence
+p paragraph
+
+You specify how you want an action to be applied with all or in:
+
+a all, the action will be applied to the text object AND the delimiters
+i in, the action will be applied inside the delimiters
+
+This is how you actually use text objects:
+
+<action><specifier><text object>
+
+Examples:
+
+dap Delete all parauraph.
+ciw Change in word.
+
+You will use these two commands frequqently. dap is a great way to quickly delete a method.
+
+Note that if you do caw instead of ciw the succeeding space will be deleted, which you probably
+don't want it you're trying to change a word.
+
+
+==== String-based Text objects ====
+
+A word is small and a paragraph is large, is there anything in between?  As a matter of fact there
+is. You can specify delimeters as text objects.
+
+Additional text objects:
+
+"
+'
+) or (
+] or [
+} or {
+
+Examples:
+
+ci" Change inside closest double quote "try it"
+ci' Change inside closest single quote 'try it'
+ci) Change inside closest parentheses (try it)
+ci] Change inside closest brackets [try it]
+ci} Change inside closest braces {try it}
+
+Note that if you do ca) instead of ci) then the parentheses will be deleted.
+
+
+------------------------------------------------------------------------------------------------------
+
+Chapter 6: Replace & Substitute
+
+Replace and substitute are two additional actions.
+
+==== Replace ====
+
+Type r<character> to replace the character under the cursor with <character>.
+
+Type R to enter replace mode. In replace mode anything you type will overwrite what's currently there.
+
+You can hit <escape> to exit replace mode.
+
+
+==== Basic Substitute ====
+
+s will delete the character under cursor then place you in insert mode so you can continue typing
+
+S will delete the text on the current line and place you in insert mode at the beginning of the
+line.
+
+I use S whenver I need to change an entire line and I'm not at the beginning of that line. The neat
+thing about S is that it respects tab alignment. It's essentially ^C combined into one command.
+
+==== Ex Substitute ====
+
+Ex commands are when you type : then type a command. If you hit : then start typing you will see
+your text appear on the command line. You can hit <enter> to execute a command or <escape> to get
+out.
+
+------------------------------------------------------------------------------------------------------
+
+Chapter 7: Search & Options
+
+==== Basic Search ====
+
+Search is an invaluable tool that happens to be very easy in Vim.
+
+Hit / and you will see / appear in the tray at the bottom of Vim. Start typing what you want to
+search for, then hit enter to go to the first match.
+
+Usage:
+
+/<string> search for next occurrences of <string>
+?<string> search for previous occurrences of <string>
+
+enter takes you to the first match
+
+Cycle through matches:
+
+n go to next match
+N go to previous match
+
+
+==== A Primer on Options =====
+
+You can turn an option on like this:
+
+:set <option>
+
+Some options are boolean. To turn them off, type:
+
+:set no<option>
+
+Other options take a parameter:
+
+:set <option>=<parameter>
+
+You can inquire about the current state of an option:
+
+:set <option>?
+
+==== Search Options ====
+
+There are two options that I recomend you turn on for searching.
+
+First, set search to ignore the case of characters.
+
+:set ic
+
+Second, turn on "smartcase". If you type in a search pattern that is all lowercase then smartcase
+will show both lower and uppercase matches. However, if you type a single uppercase character then
+smartcase will become case sensitive.
+
+:set smartcase
+
+Smartcase gives you the best of both worlds. You don't have to type uppercase characters when
+casually searching, but if you need to find a specific constant or class name, which typically has
+an uppercase character, you can weed out all the lowercase matches by typing with the actual case.
+
+Unfortunately, both of these settings default to off. You can put them in your vimrc file so that
+you don't have to type them every time you start Vim. We'll cover vimrc's in a later chapter.
+
+
+------------------------------------------------------------------------------------------------------
+
+Chapter 8: Yank & Put
+
+Ya
+
+------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------
+Chapter 7: Selections
+Chapter 8: Saving and Quitting
+Chapter 9: Opening Files
+Chapter 10: Custom Mappings
+Chapter 11: Settings
+Chapter 12: Color Schemes
