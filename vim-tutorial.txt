@@ -43,7 +43,7 @@ close the manual.
 ==== Basic Terminology ====
 
 The line at the very bottom of Vim which shoud currently be empty is called the "command line". The
-second to last line at the bottom of Vim, which should have the name this file is called the "status
+second to last line at the bottom of Vim wich has the name this file is called the "status
 line".
 
 
@@ -62,17 +62,18 @@ Chapter 7: Search & Options
 Chapter 8: Yank & Paste
 Chapter 9: Selections
 Chapter 10: File Management
-Chapter 11: Custom Settings
-Chapter 12: Color Schemes
-Chapter 13: Additional Resources
-Chapter 14: Plugins
-Chapter 15: Tmux
+Chapter 11: Staying DRY: Dot, Macros, and Arglists
+Chapter 12: Custom Settings
+Chapter 13: Color Schemes
+Chapter 14: Additional Resources
+Chapter 15: Plugins
+Chapter 16: Tmux
 
 ----------------------------------------------------------------------------------------------------
 
 CHAPTER 1: Motion
 
-Learning all the motions is the first step in mastering Vim. Later, these motions can be combined
+Learning all the motions is the first step in mastering Vim. Later, these motions will be combined
 with actions to great effect.
 
 
@@ -83,8 +84,8 @@ Let's start with basic motions. Try these out:
 h moves you left
 l moves you right
 
-j moves you down (think "Jump Down")
-k moves you up (think "Kick it Up")
+j moves you down (think "jump down")
+k moves you up (think "kick it up")
 
 You can hold these keys down to keep moving. You can get around a file with hjkl, but it's not very
 efficient, so lets go over a few ways to get around faster.
@@ -671,6 +672,11 @@ See Eunuch: https://github.com/tpope/vim-eunuch
 
 ----------------------------------------------------------------------------------------------------
 
+Chapter 11: Staying dry...
+
+----------------------------------------------------------------------------------------------------
+
+
 Chapter 11: Custom Settings
 
 
@@ -713,6 +719,8 @@ And corresponding unmap commands:
 :unmap
 :iunmap
 :vunmap
+
+#todo: cover mapping special keys like <esc>, <CR>, etc...
 
 ==== Vimrc ====
 
