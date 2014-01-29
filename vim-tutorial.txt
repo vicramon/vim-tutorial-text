@@ -694,6 +694,19 @@ See Eunuch: https://github.com/tpope/vim-eunuch
 #todo
 Chapter 11: Staying Dry
 
+Whenever you are using Vim, the following mantra should be running through your head:
+
+One Keystroke to Move, One Keystroke to Execute.
+
+It's a mantra, so we'll need to say it a few more times to get that mantra-feeling.
+
+One Keystroke to Move, One Keystroke to Execute.
+
+One Keystroke to Move, One Keystroke to Execute.
+
+One Keystroke to Move, One Keystroke to Execute.
+
+Ok, now you've been indoctrinated into the Vim cult, let me show you some more ways to stay dry.
 
 ==== Dot Operator ====
 
