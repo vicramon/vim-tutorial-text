@@ -399,8 +399,6 @@ where you need to check each match and choose whether or not to make the replace
 
 :%s/old/new/gc
 
-#todo: visual selection substitute
-
 
 ----------------------------------------------------------------------------------------------------
 
@@ -597,8 +595,20 @@ x or d to delete
 c to change
 y to yank
 
-I to insert text. This is unique to visual block. Note that you will only see your text on the first
-line until you hit <escape>.
+I to insert text. I is unique to visual block. Note that you will only see your newly inserted text
+on the first line until you hit <escape>, then you will see it inserted on every line.
+
+
+==== Substitute Across a Selection ====
+
+Once you've made a visual selection of any kind you can use the substitute ex command to make a
+substitution across the selected text.  Here's how:
+
+1. Make a visual selection
+
+2. Press : . You will see <,'> appear in the command line.
+
+3. Type s/old/new/g and hit enter to make your substitution.
 
 
 ----------------------------------------------------------------------------------------------------
@@ -677,7 +687,7 @@ Chapter 11: Staying dry...
 ----------------------------------------------------------------------------------------------------
 
 
-Chapter 11: Custom Settings
+Chapter 11: Mappings & Vimrc
 
 
 ==== Custom Mappings ====
@@ -720,14 +730,61 @@ And corresponding unmap commands:
 :iunmap
 :vunmap
 
-#todo: cover mapping special keys like <esc>, <CR>, etc...
+Note that modifier keys have their own representations:
+
+<CR>  for enter
+<S>   for shift
+<C>   for control
+<esc> for escape
+<leader> for \
+
+To make a mapping that requires a modifier to be held down at the same time as another key, use a
+dash. For example, to map control-l to control-l + w you would do this:
+
+:noremap <C-l> <C-w>l
+
 
 ==== Vimrc ====
 
+Vim will automatically look for and load a .vimrc file in your home directory when it starts. Your
+vimrc file is a great place to put your personal settings and mappings.
 
-==== Abbreviations ====
+Officially, vimrc files are written in what's called Vimscript. But you don't need to know any real
+Vimscript to make a useful vimrc. Just take ex commands, like :set ic, and place them in the file
+without the colon.
 
-:abbrev <abbreviation text> <full text>
+An example vimrc file might look like this:
+
+set number
+set ignorecase
+set smartcase
+
+Here are some things I keep in my vimrc that I use all the time:
+
+" Comments in Vimscript start with a double quote
+
+" \s is much faster than :w enter
+nnoremap <leader>s :w<cr>
+inoremap <leader>s <esc>:w<cr>
+
+" same thing goes for \q
+noremap <leader>q :q<cr>
+
+" who has time to press w each time they want to change windows?
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+
+" this is much faster than typing :set paste, then :set nopaste
+set pastetoggle=<F10>
+
+I turned my vimrc into a plugin called vim-quickdraw. You can check it out at
+https://github.com/vicramon/vim-quickdraw.
+
+If you end up creating a bunch of personal mappings and settings then I highly suggest that you also
+make your vimrc a plugin. It's very easy, and it keeps your code under version control and
+accessible from any other computer.
 
 
 ----------------------------------------------------------------------------------------------------
@@ -735,32 +792,88 @@ And corresponding unmap commands:
 
 Chapter 12: Color Schemes
 
+==== Basic Usage ====
 
-  - solarized
-  - molokai
-  -
+You have to like the look of your terminal if you're going to be in it all day. Vim comes with quite
+a few color schemes. To see them:
+
+1. Type :colo
+2. Hit tab. You should see a list of available color schemes.
+3. Type the name of the color scheme you want to try, then hit enter.
+
+I am sort of a color scheme fanatic myself, and I eventually settled on two color schemes that I
+like the most.
+
+
+==== Solarized ====
+
+Solarized is a low contrast color scheme that's really easy on your eyes. It's one of the most
+popular color schemes for Vim, for good reason. It has a grey-blue background that might seem odd at
+first, but becomes really pleasant once you spend some time with it.
+
+Get it here: https://github.com/altercation/vim-colors-solarized
+
+
+==== Molokai ====
+
+Molokai is a fantastic color scheme. It has a dark background and vibrant colors. It's my second
+favorite after Solarized.
+
+Get it here: https://github.com/tomasr/molokai
+
+
+==== Others ====
+
+Some other popular color schemes are Railscasts, Badwolf, Vividchalk, Codeschool, and Pyte.
 
 
 ----------------------------------------------------------------------------------------------------
-
 
 Chapter 13: Additional Resources
-  - Practical Vim
-  - VimGenius
-  -
+
+There are many resources out there to help you learn and master Vim. Here are some of my favorites:
+
+The book "Practical Vim", by Drew Neil is truly great. I think it's required reading if you really
+want to improve your Vim-fu. Drew also does screencasts at www.vimcasts.org.
+
+If you want to learn more about Vimscript check out "Learn Vimscript the Hard Way", by Steve Losh.
+It's a great resource for anyone that wants to write serious Vim plugins.
+
+I wrote a flashcard-style learning program for Vim called Vim Genius. You can play for free at
+www.vimgenius.com.
+
+vim.wikia.com has quite a bit of information. You will surely come across this site if you do much
+Googling about Vim.
+
+Here is a great image of a keyboard overlaid with all the Vim commands and their actions:
+http://www.viemu.com/vi-vim-cheat-sheet.gif
+
+And of course there's always StackOverflow and your old buddy :help.
 
 
 ----------------------------------------------------------------------------------------------------
 
-
 Chapter 14: Plugins
-  - Plugin Manager: pathogen
-  - Eunuch
-  - SuperTab
-  - RailsVim?
+
+This guide is lengthy as is and I could write an entirely different guide covering plugins, so I think
+I'll just provide an overview of some of the most popular plugins:
+
+==== Pathogen ====
+
+==== SuperTab ====
+
+==== Vim Surround ====
+
+==== Fugitive ====
+
+==== Rails.Vim ====
+
+==== Eunuch ====
+
 
 ----------------------------------------------------------------------------------------------------
 
 
 Chapter 15: Tmux
-  - this is it's own tutorial
+
+Tmux is a terminal multiplexer, which basically means ta
