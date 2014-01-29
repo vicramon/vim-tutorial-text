@@ -1,11 +1,17 @@
 Vic Ramon's Vim Tutorial
 ------------------------
 
-This is a Vim tutorial that teaches the philosophy of Vim and all the motions and actions that you
+==== Preface ====
+
+Welcome! This is a Vim tutorial that teaches the philosophy of Vim and all the commands that you
 should know for day-to-day use actually coding with Vim.
 
-Learn more about Vim at http://vicramon.com/vim. You can also submit questions, comments and
-feedback there.
+Vim's abilities are vast. It would be easy for me to take up a lot of space without being an
+effective teacher, so I have carefully curated this guide to only include commands that I use every
+day. There's certainly some neat stuff that didn't make the cut, but I figure the less I cover the
+easier it will be for you to remember the things that I do cover.
+
+If you have any questions, comments or feedback please send it to vic@vicramon.com
 
 
 ==== Introduction ====
@@ -28,7 +34,7 @@ Vimmmers alike.
 
 When you see a new command immediately practice it in this file. If it's a command that changes
 something just hit u to undo. The only way you will remember all of these commands is to use them
-repetetively, so for each command you learn, PLAY WITH IT. Experiment. See what it does and how it
+repeatedly, so for each command you learn, PLAY WITH IT. Experiment. See what it does and how it
 behaves. It's easier to remember all of these commands than you might think if you can integrate
 them into your muscle memmory.
 
@@ -36,7 +42,7 @@ them into your muscle memmory.
 ==== Check out the Manual ====
 
 Vim comes with an incredibly detailed built in manual. Just type :help <command> to get all the
-inofrmation about a command. The manual will open in a horizontal split. Just type :q<enter> to
+information about a command. The manual will open in a horizontal split. Just type :q<enter> to
 close the manual.
 
 
@@ -47,7 +53,7 @@ second to last line at the bottom of Vim wich has the name this file is called t
 line".
 
 
-Let's begin!
+Enough with the formalities, let's begin!
 
 
 ==== Table of Contents ====
@@ -62,7 +68,7 @@ Chapter 7: Search & Options
 Chapter 8: Yank & Paste
 Chapter 9: Selections
 Chapter 10: File Management
-Chapter 11: Staying DRY: Dot, Macros, and Arglists
+Chapter 11: Staying DRY
 Chapter 12: Custom Settings
 Chapter 13: Color Schemes
 Chapter 14: Additional Resources
@@ -682,7 +688,15 @@ See Eunuch: https://github.com/tpope/vim-eunuch
 
 ----------------------------------------------------------------------------------------------------
 
-Chapter 11: Staying dry...
+Chapter 11: Staying Dry
+
+
+==== Dot Operator ====
+
+
+==== Macro ====
+
+
 
 ----------------------------------------------------------------------------------------------------
 
