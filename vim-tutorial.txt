@@ -1,17 +1,20 @@
-Vic Ramon's Vim Tutorial
-------------------------
+----------------------------------------------
+||        VIC RAMON'S VIM TUTORIAL          ||
+----------------------------------------------
+
+Version:   0.1
+Published: 1/29/2014
 
 ==== Preface ====
 
-Welcome! This is a Vim tutorial that teaches the philosophy of Vim and all the commands that you
-should know for day-to-day use actually coding with Vim.
+Welcome! This is tutorial teaches the philosophy of Vim and all the commands that you should know
+for day-to-day use actually coding with Vim.
 
 Vim's abilities are vast. It would be easy for me to take up a lot of space without being an
 effective teacher, so I have carefully curated this guide to only include commands that I use every
-day. There's certainly some neat stuff that didn't make the cut, but I figure the less I cover the
-easier it will be for you to remember the things that I do cover.
+day.
 
-If you have any questions, comments or feedback please send it to vic@vicramon.com
+Please send any feedback or questions to vic@vicramon.com.
 
 
 ==== Introduction ====
@@ -58,15 +61,15 @@ Enough with the formalities, let's begin!
 
 ==== Table of Contents ====
 
-Chapter 1: Motions
-Chapter 2: Insert Mode
-Chapter 3: Delete
-Chapter 4: Change
-Chapter 5: Text Objects
-Chapter 6: Replace & Substitute
-Chapter 7: Search & Options
-Chapter 8: Yank & Paste
-Chapter 9: Selections
+Chapter 1:  Motions
+Chapter 2:  Insert Mode
+Chapter 3:  Delete
+Chapter 4:  Change
+Chapter 5:  Text Objects
+Chapter 6:  Replace & Substitute
+Chapter 7:  Search & Options
+Chapter 8:  Yank & Paste
+Chapter 9:  Selections
 Chapter 10: File Management
 Chapter 11: Staying DRY
 Chapter 12: Custom Settings
@@ -688,6 +691,7 @@ See Eunuch: https://github.com/tpope/vim-eunuch
 
 ----------------------------------------------------------------------------------------------------
 
+#todo
 Chapter 11: Staying Dry
 
 
@@ -843,7 +847,67 @@ Some other popular color schemes are Railscasts, Badwolf, Vividchalk, Codeschool
 
 ----------------------------------------------------------------------------------------------------
 
-Chapter 13: Additional Resources
+Chapter 13: Plugins
+
+I could write an entirely different guide just covering plugins, so I'm just going to provide an
+overview of some of the most popular Vim plugins.
+
+
+==== Pathogen ====
+
+Pathogen is a plugin manager for Vim. It automatically sources all of the files that come with a
+plugin.
+
+The instructions to setup Pathogen are located here: https://github.com/tpope/vim-pathogen
+
+Once you have Pathogen installed, simply put your plugins in ~/.vim/bundle to have them sourced.
+
+
+==== SuperTab ====
+
+SuperTab  is a great plugin for text completion. Vim comes with text completion built in, but
+SuperTab is much more intuitive -- you simply press tab to autocomplete.
+
+See: https://github.com/ervandew/supertab
+
+
+==== Vim Surround ====
+
+Vim Surround provides mappings to easily add, modify, or delete characters that surround words like
+(, [, ', and ".  This comes in handy all the time when writing code.
+
+See: https://github.com/tpope/vim-surround
+
+
+==== Eunuch ====
+
+Eunuch.vim provides useful ex commands for Vim like :Remove and :Move.
+
+See: https://github.com/tpope/vim-eunuch
+
+
+==== Rails.vim ====
+
+If you're writing Rails apps with Vim then Rails.vim is indispensable. It provides ex commands to
+help you quickly open the right file from anywhere within your app.
+
+See: https://github.com/tpope/vim-rails
+
+
+==== Vim Airline ====
+
+Vim Airline makes your status line more useful. For example it changes colors depending on what mode
+you are in. It's also highly configurable.
+
+See: https://github.com/bling/vim-airline
+
+==== Tmux ====
+
+#todo
+
+----------------------------------------------------------------------------------------------------
+
+Chapter 14: Additional Resources
 
 There are many resources out there to help you learn and master Vim. Here are some of my favorites:
 
@@ -867,27 +931,13 @@ And of course there's always StackOverflow and your old buddy :help.
 
 ----------------------------------------------------------------------------------------------------
 
-Chapter 14: Plugins
+==== Conclusion ====
 
-This guide is lengthy as is and I could write an entirely different guide covering plugins, so I think
-I'll just provide an overview of some of the most popular plugins:
+Congratulations on making it to the end of this tutorial. You will surely be a better Vimmer if
+you can process all this information and integrate it into your workflow.
 
-==== Pathogen ====
+Please send any feedback or suggestions to vic@vicramon.com.
 
-==== SuperTab ====
+Happy Vimming!
 
-==== Vim Surround ====
-
-==== Fugitive ====
-
-==== Rails.Vim ====
-
-==== Eunuch ====
-
-
-----------------------------------------------------------------------------------------------------
-
-
-Chapter 15: Tmux
-
-Tmux is a terminal multiplexer, which basically means ta
+-- Vic Ramon
