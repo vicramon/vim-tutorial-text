@@ -76,7 +76,6 @@ Chapter 12: Custom Settings
 Chapter 13: Color Schemes
 Chapter 14: Additional Resources
 Chapter 15: Plugins
-Chapter 16: Tmux
 
 ----------------------------------------------------------------------------------------------------
 
@@ -718,7 +717,7 @@ Ok, now you've been indoctrinated into the Vim cult, let me show you some more w
 ----------------------------------------------------------------------------------------------------
 
 
-Chapter 11: Mappings & Vimrc
+Chapter 12: Mappings & Vimrc
 
 
 ==== Custom Mappings ====
@@ -821,7 +820,7 @@ accessible from any other computer.
 ----------------------------------------------------------------------------------------------------
 
 
-Chapter 12: Color Schemes
+Chapter 13: Color Schemes
 
 ==== Basic Usage ====
 
@@ -860,7 +859,7 @@ Some other popular color schemes are Railscasts, Badwolf, Vividchalk, Codeschool
 
 ----------------------------------------------------------------------------------------------------
 
-Chapter 13: Plugins
+Chapter 14: Plugins
 
 I could write an entirely different guide just covering plugins, so I'm just going to provide an
 overview of some of the most popular Vim plugins.
@@ -920,7 +919,7 @@ See: https://github.com/bling/vim-airline
 
 ----------------------------------------------------------------------------------------------------
 
-Chapter 14: Additional Resources
+Chapter 15: Additional Resources
 
 There are many resources out there to help you learn and master Vim. Here are some of my favorites:
 
