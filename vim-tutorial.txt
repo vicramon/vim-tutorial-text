@@ -7,53 +7,55 @@ Published: 1/29/2014
 
 ==== Preface ====
 
-Welcome! This is tutorial teaches the philosophy of Vim and all the commands that you should know
-for day-to-day use actually coding with Vim.
+Welcome! This is tutorial teaches the philosophy of Vim and all the commands
+that you should know for day-to-day use actually coding with Vim.
 
-Vim's abilities are vast. It would be easy for me to take up a lot of space without being an
-effective teacher, so I have carefully curated this guide to only include commands that I use every
-day.
+Vim's abilities are vast. It would be easy for me to take up a lot of space
+without being an effective teacher, so I have carefully curated this guide to only include commands that I use every day.
 
 Please send any feedback or questions to vic@vicramon.com.
 
 
 ==== Introduction ====
 
-Vim is great for writing code, but what surpised me most about Vim is that it's FUN. It's really
-exciting to see a whole paragraph disappear with 3 keys, or to play a macro that does a ton of work
-with with a single keystroke.
+Vim is great for writing code, but what surpised me most about Vim is that
+it's FUN. It's really exciting to see a whole paragraph disappear with 3
+keys, or to play a macro that does a ton of work with with a single
+keystroke.
 
-Now that I know Vim I couldn't imagine writing code without it. I hope that you will feel the same
-way once you become a Vim expert.
+Now that I know Vim I couldn't imagine writing code without it. I hope that
+you will feel the same way once you become a Vim expert.
 
-I created this tutorial for a few reasons. First I thought I could improve upon existing tutorials
-by focusing on the commands and patterns that programmers use most. Second, I wanted to teach people
-more about the philosophy of Vim and how that relates to pleasant and speedy coding. Most of all, I
-wanted to provide a thorough guide to Vim that will be useful to both beginner and intermediate
-Vimmmers alike.
+I created this tutorial for a few reasons. First I thought I could improve
+upon existing tutorials by focusing on the commands and patterns that
+programmers use most. Second, I wanted to teach people more about the
+philosophy of Vim and how that relates to pleasant and speedy coding. Most
+of all, I wanted to provide a thorough guide to Vim that will be useful to
+both beginner and intermediate Vimmmers alike.
 
 
 ==== How To Use this Tutorial ====
 
-When you see a new command immediately practice it in this file. If it's a command that changes
-something just hit u to undo. The only way you will remember all of these commands is to use them
-repeatedly, so for each command you learn, PLAY WITH IT. Experiment. See what it does and how it
-behaves. It's easier to remember all of these commands than you might think if you can integrate
-them into your muscle memmory.
+When you see a new command immediately practice it in this file. If it's a
+command that changes something just hit u to undo. The only way you will
+remember all of these commands is to use them repeatedly, so for each
+command you learn, PLAY WITH IT. Experiment. See what it does and how it
+behaves. It's easier to remember all of these commands than you might think
+if you can integrate them into your muscle memmory.
 
 
 ==== Check out the Manual ====
 
-Vim comes with an incredibly detailed built in manual. Just type :help <command> to get all the
-information about a command. The manual will open in a horizontal split. Just type :q<enter> to
-close the manual.
+Vim comes with an incredibly detailed built in manual. Just type :help
+<command> to get all the information about a command. The manual will open
+in a horizontal split. Just type :q<enter> to close the manual.
 
 
 ==== Basic Terminology ====
 
-The line at the very bottom of Vim which shoud currently be empty is called the "command line". The
-second to last line at the bottom of Vim wich has the name this file is called the "status
-line".
+The line at the very bottom of Vim which shoud currently be empty is called
+the "command line". The second to last line at the bottom of Vim wich has
+the name this file is called the "status line".
 
 
 Enough with the formalities, let's begin!
@@ -77,12 +79,14 @@ Chapter 13: Color Schemes
 Chapter 14: Additional Resources
 Chapter 15: Plugins
 
-----------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
 
 CHAPTER 1: Motion
 
-Learning all the motions is the first step in mastering Vim. Later, these motions will be combined
-with actions to great effect.
+Learning all the motions is the first step in mastering Vim. Later, these
+motions will be combined with actions to great effect.
 
 
 ==== Basic Motion =====
@@ -95,15 +99,18 @@ l moves you right
 j moves you down (think "jump down")
 k moves you up (think "kick it up")
 
-You can hold these keys down to keep moving. You can get around a file with hjkl, but it's not very
-efficient, so lets go over a few ways to get around faster.
+You can hold these keys down to keep moving. You can get around a file with
+hjkl, but it's not very efficient, so lets go over a few ways to get around
+faster.
 
 ==== Speedy Motion ====
 
 { moves you one paragraph up
 } moves you one paragraph down
 
-Now we're screaming! { and } are great for every day use to get around methods quickly.
+Now we're screaming! { and } are great for every day use to get around
+methods quickly.
+
 
 ==== Scrolling ====
 
@@ -120,7 +127,10 @@ G takes you to the bottom of a file
 ==== Line Motion ====
 
 ^ moves you to the first character in a line
-0 moves you to the beginning of the entire line (think "0 is the beginning")
+
+0 moves you to the beginning of the entire line (think "0 is the
+beginning")
+
 $ moves you to the end of the line (think "the buck stops here")
 
 ==== Word Motion ====
@@ -131,31 +141,35 @@ b moves you to the first character of the previous word (b for beginning)
 
 w, e, and b are good for crusing through words.
 
-Note that you can capitalize any of these and they will skip across special characters. For example,
-E will skip across these (parentheses), whereas e will stop at each special character.
+Note that you can capitalize any of these and they will skip across special
+characters. For example, E will skip across these (parentheses), whereas e
+will stop at each special character.
 
 ==== Precise motion with f and t ====
 
-The things I've shown you so far are great, but even if you get to a word with e, you still would
-have to use h or l to get to a specific character if it's not at the beginning or end of the word.
-That can add up to a lot of keystrokes.
+The things I've shown you so far are great, but even if you get to a word
+with e, you still would have to use h or l to get to a specific character
+if it's not at the beginning or end of the word.  That can add up to a lot
+of keystrokes.
 
 Precise motion can minimize those keystrokes.
 
-f<character> moves you to the next occurrence of <character> in your current line (think "f is
-find")
+f<character> moves you to the next occurrence of <character> in your
+current line (think "f is find")
 
-Try it on the line above by going to the beginning of the line, then typing "fo". That should take
-you to the "o" in "move".
+Try it on the line above by going to the beginning of the line, then typing
+"fo". That should take you to the "o" in "move".
 
 Cycle through the search results:
 
 ; moves you to the next occurrence of the character you searched for.
 , moves you to the previous occurrence of the character you searched for.
 
-Next let's talk about t. t is like f, but it takes you up *till* the character you search for.
+Next let's talk about t. t is like f, but it takes you up *till* the
+character you search for.
 
-t<character> moves you to the spot immediately before the next occurrence of <character> is till")
+t<character> moves you to the spot immediately before the next occurrence
+of <character> is till")
 
 Examples:
 
@@ -163,25 +177,29 @@ t.
 t)
 ta
 
-f and t are some of the most useful motions. You'll see their true power once we combine them with
-actions in future chapters.
+f and t are some of the most useful motions. You'll see their true power
+once we combine them with actions in future chapters.
+
 
 ==== Motions Wrap Up ====
 
-The best way to get good at motions is to practice. Play with all the different motion types, and
-soon enough they'll be like second-nature.
+The best way to get good at motions is to practice. Play with all the
+different motion types, and soon enough they'll be like second-nature.
 
-The main goal with Vim motions is to get to your desired location with the fewest keystrokes
-possible. Knowing all of these motions cold will help you accomplish this.
+The main goal with Vim motions is to get to your desired location with the
+fewest keystrokes possible. Knowing all of these motions cold will help you
+accomplish this.
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
 
 CHAPTER 2: Insert Mode
 
-Vim is a modal editor, meaning that it has different modes. The mode you're in when you're just
-moving around is called "Normal Mode". To insert new text, we'll need act like a superhero and
-change costumes into... INSERT MODE.
+Vim is a modal editor, meaning that it has different modes. The mode you're
+in when you're just moving around is called "Normal Mode". To insert new
+text, we'll need act like a superhero and change costumes into... INSERT
+MODE.
 
 ==== Undo / Redo ====
 
@@ -190,8 +208,9 @@ Before we start modifying text, you should know these two things:
 u undo
 control-r redo
 
-Now you know how to undo any crazy changes you make to this file. Just hold u until you're back to
-the original. Note that u and control-r only work in normal mode.
+Now you know how to undo any crazy changes you make to this file. Just hold
+u until you're back to the original. Note that u and control-r only work in
+normal mode.
 
 
 ==== Basic Insert ====
@@ -200,28 +219,31 @@ i switches you into insert mode wherever the cursor is.
 a will put you in insert mode one space after the cursor
 <escape> puts you back in normal mode.
 
-You will know that you are in insert mode if you see "-- INSERT --" at the bottom of Vim.
+You will know that you are in insert mode if you see "-- INSERT --" at the
+bottom of Vim.
 
 === Advanced Insert  ====
 
-The cool thing about insert mode is that there are many ways to get into it,
-each of which will put you in insert mode AND move you to the right spot to insert
-code.
+The cool thing about insert mode is that there are many ways to get into
+it, each of which will put you in insert mode AND move you to the right
+spot to insert code.
 
 I will put you in insert mode at the beginning of a line.
 A will put you in insert mode at the end of a line.
 o will put you in insert mode on a new line (think "open")
-O (that's capital o, not zero) will put you in insert mode on a new line above your current line.
+O (that's capital o, not zero) will put you in insert mode on a new line
+above your current line.
 
-That's it for insert mode. If you find your pinky getting tired of hitting escape you can use
-control-c or control-[ instead.
+That's it for insert mode. If you find your pinky getting tired of hitting
+escape you can use control-c or control-[ instead.
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 CHAPTER 3: Delete
 
-Actions are the verbs of Vim -- they actually do things. They can be combined with motions to get
-the exact result you want. Delete is the first action I'll be showing you.
+Actions are the verbs of Vim -- they actually do things. They can be
+combined with motions to get the exact result you want. Delete is the first
+action I'll be showing you.
 
 ==== Basic Actions =====
 
@@ -229,7 +251,8 @@ x deletes the character under the cursor
 
 ==== Delete ====
 
-While x is good for simple deletions, what if you need to delete more things? Enter d.
+While x is good for simple deletions, what if you need to delete more
+things? Enter d.
 
 d<motion> delete
 
@@ -244,10 +267,11 @@ d0 will delete to the beginning of the line.
 
 d is extremely powerful when combined when combined with t and f.
 
-df<character> will delete everything from the cursor to (and including) the first occurence of
-<character>.
+df<character> will delete everything from the cursor to (and including) the
+first occurence of <character>.
 
-dt<character> will delete everything from the cursor till the first occurence of <character>.
+dt<character> will delete everything from the cursor till the first
+occurence of <character>.
 
 Examples:
 
@@ -261,26 +285,29 @@ dt. is a very useulf command when coding.
 
 dd will delete the current line
 
-You can append a count to the front of this command to repeat it on multiple lines.
+You can append a count to the front of this command to repeat it on
+multiple lines.
 
 <count>dd will delete <count> lines
 
-You will most often use dd by itself, or 2dd and 3dd to delete a paragraph or method.
+You will most often use dd by itself, or 2dd and 3dd to delete a paragraph
+or method.
 
 ==== Delete to end of line ====
 
 D will delete from your cursor location to the end of the line
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 
 CHAPTER 4: Change
 
 ==== Basic Usage ====
 
-Change is like delete, but it puts you in insert mode immediately after doing the delete. This is
-helpful when you want to delete text, then immediatley replace it with something else.
+Change is like delete, but it puts you in insert mode immediately after
+doing the delete. This is helpful when you want to delete text, then
+immediatley replace it with something else.
 
 c<motion> will change the text specified by that motion.
 
@@ -306,7 +333,7 @@ ct) change till next )
 cta change till next a
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 CHAPTER 5: Text Objects
 
@@ -335,16 +362,17 @@ Examples:
 dap Delete all parauraph.
 ciw Change in word.
 
-You will use these two commands frequqently. dap is a great way to quickly delete a method.
+You will use these two commands frequqently. dap is a great way to quickly
+delete a method.
 
-Note that if you do caw instead of ciw the succeeding space will be deleted, which you probably
-don't want it you're trying to change a word.
+Note that if you do caw instead of ciw the succeeding space will be
+deleted, which you probably don't want it you're trying to change a word.
 
 
 ==== String-based Text objects ====
 
-A word is small and a paragraph is large, is there anything in between?  As a matter of fact there
-is. You can specify delimeters as text objects.
+A word is small and a paragraph is large, is there anything in between?  As
+a matter of fact there is. You can specify delimeters as text objects.
 
 Additional text objects:
 
@@ -362,10 +390,12 @@ ci) Change inside closest parentheses (try it)
 ci] Change inside closest brackets [try it]
 ci} Change inside closest braces {try it}
 
-Note that if you do ca) instead of ci) then the parentheses will be deleted.
+Note that if you do ca) instead of ci) then the parentheses will be
+deleted.
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
 
 Chapter 6: Replace & Substitute
 
@@ -373,42 +403,48 @@ Replace and substitute are two additional actions.
 
 ==== Replace ====
 
-Type r<character> to replace the character under the cursor with <character>.
+Type r<character> to replace the character under the cursor with
+<character>.
 
-Type R to enter replace mode. In replace mode anything you type will overwrite what's currently there.
+Type R to enter replace mode. In replace mode anything you type will
+overwrite what's currently there.
 
 You can hit <escape> to exit replace mode.
 
 
 ==== Basic Substitute ====
 
-s will delete the character under cursor then place you in insert mode so you can continue typing
+s will delete the character under cursor then place you in insert mode so
+you can continue typing
 
-S will delete the text on the current line and place you in insert mode at the beginning of the
-line.
+S will delete the text on the current line and place you in insert mode at
+the beginning of the line.
 
-I use S whenver I need to change an entire line and I'm not at the beginning of that line. The neat
-thing about S is that it respects tab alignment. It's essentially ^C combined into one command.
+I use S whenver I need to change an entire line and I'm not at the
+beginning of that line. The neat thing about S is that it respects tab
+alignment. It's essentially ^C combined into one command.
 
 ==== Primer on Ex Commands ====
 
-Ex commands are when you type : then type a command. If you hit : then start typing you will see
-your text appear on the command line. You can hit <enter> to execute a command or <escape> to get
-out.
+Ex commands are when you type : then type a command. If you hit : then
+start typing you will see your text appear on the command line. You can hit
+<enter> to execute a command or <escape> to get out.
 
 ==== Substitute Ex Command ====
 
-:%s/old/new/g will replace "old" with "new" everywhere in your current file.
+:%s/old/new/g will replace "old" with "new" everywhere in your current
+file.
 
 The g stands for global.
 
-Add c to the end to be prompted before making each change. This is great for search and replace
-where you need to check each match and choose whether or not to make the replacement.
+Add c to the end to be prompted before making each change. This is great
+for search and replace where you need to check each match and choose
+whether or not to make the replacement.
 
 :%s/old/new/gc
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 
 Chapter 7: Search & Options
@@ -418,7 +454,7 @@ Chapter 7: Search & Options
 
 Search is an invaluable tool that happens to be very easy in Vim.
 
-Hit / and you will see / appear in the tray at the bottom of Vim. Start typing what you want to
+Hit / and you will see / appear in the tray at the bottom of Vim. Start typ
 search for, then hit enter to go to the first match.
 
 Usage:
@@ -461,26 +497,31 @@ First, set search to ignore the case of characters.
 
 :set ic
 
-Second, turn on "smartcase". If you type in a search pattern that is all lowercase then smartcase
-will show both lower and uppercase matches. However, if you type a single uppercase character then
-smartcase will become case sensitive.
+Second, turn on "smartcase". If you type in a search pattern that is all
+lowercase then smartcase will show both lower and uppercase matches.
+However, if you type a single uppercase character then smartcase will
+become case sensitive.
 
 :set smartcase
 
-Smartcase gives you the best of both worlds. You don't have to type uppercase characters when
-casually searching, but if you need to find a specific constant or class name, which typically has
-an uppercase character, you can weed out all the lowercase matches by typing with the actual case.
+Smartcase gives you the best of both worlds. You don't have to type
+uppercase characters when casually searching, but if you need to find a
+specific constant or class name, which typically has an uppercase
+character, you can weed out all the lowercase matches by typing with the
+actual case.
 
-Unfortunately, both of these settings default to off. You can put them in your vimrc file so that
-you don't have to type them every time you start Vim. We'll cover vimrc's in a later chapter.
+Unfortunately, both of these settings default to off. You can put them in
+your vimrc file so that you don't have to type them every time you start
+Vim. We'll cover vimrc's in a later chapter.
 
 
 ==== Search with * ====
 
-* will search for the word under the cursor. You can use n and N to cycle through the results.
+* will search for the word under the cursor. You can use n and N to cycle
+* through the results.
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 
 Chapter 8: Yank & Put
@@ -509,7 +550,9 @@ P  put the last yank before the cursor
 
 ==== Pasting with Registers ====
 
-Vim keeps track of all the things you have recently deleted in the register. Delete a few things, they type :reg to see the register. You will see output like the following:
+Vim keeps track of all the things you have recently deleted in the register.
+Delete a few things, they type :reg to see the register. You will see output
+like the following:
 
 --- Registers ---
 ""   the most recent deleted OR yanked text
@@ -524,78 +567,91 @@ Vim keeps track of all the things you have recently deleted in the register. Del
 "8   etc...
 "9   etc...
 
-The first register, the " register, is called the unnamed register. It contains your most recent
-delete or yank. If you yank something, then delete something else then this register will be
-overwritten by the delete.
+The first register, the " register, is called the unnamed register. It
+contains your most recent delete or yank. If you yank something, then delete
+something else then this register will be overwritten by the delete.
 
-This can create problems because you could yank something, intending to paste it elsewhere, then
-delete some text along the way, then type p expecting to see your paste, and -- whoops -- instead,
-you see what you deleted.
+This can create problems because you could yank something, intending to
+paste it elsewhere, then delete some text along the way, then type p
+expecting to see your paste, and -- whoops -- instead, you see what you
+deleted.
 
-The solution to this is the 0 register. The 0 register will contain your last yank and it won't be
-overwritten by any deletions.
+The solution to this is the 0 register. The 0 register will contain your
+last yank and it won't be overwritten by any deletions.
 
-To put from the 0 register, type "0p . Now that's a lot of characters and the 0 key is way in the
-upper right of the keyboard. We can do better than that for something we want to use a lot, so lets
-make a custom mapping for it.
+To put from the 0 register, type "0p . Now that's a lot of characters and
+the 0 key is way in the upper right of the keyboard. We can do better than
+that for something we want to use a lot, so lets make a custom mapping for
+it.
 
 :noremap gp "0p
 
-This will make gp always put from the 0 register. I'll be covering mappings in a later chapter, just
-know that if you feel like something sucks in Vim you can usually make a mapping that fixes it.
+This will make gp always put from the 0 register. I'll be covering mappings
+in a later chapter, just know that if you feel like something sucks in Vim
+you can usually make a mapping that fixes it.
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
 
 Chapter 9: Selections
 
-There are three types of selections you can make in Vim: visual, visual line, and visual block.
-Selections are a core feature that you will come to love.
+There are three types of selections you can make in Vim: visual, visual
+line, and visual block.  Selections are a core feature that you will come to
+love.
 
 ==== Visual Selection ====
 
-Press v to activate visual selection mode, then use motions to expand the selected area.
+Press v to activate visual selection mode, then use motions to expand the
+selected area.
 
-Once you are a visual selection you can perform operations on the selected text.
+Once you are a visual selection you can perform operations on the selected
+text.
 
 d  delete the selected text
 x  same thing
 c  change the selected text
 y  yank the selected text
 
-You will typically use visual selection to select a specific piece of code and yank it. You could
-yank the code with the standard yank command, but doing a visual selection allows you to see exactly
-what you are about to yank.
+You will typically use visual selection to select a specific piece of code
+and yank it. You could yank the code with the standard yank command, but
+doing a visual selection allows you to see exactly what you are about to
+yank.
 
-You can press o while in a visual selection to move the cursor to the other side of the selection
-box. This allows you to expand the selection in the other direction.
+You can press o while in a visual selection to move the cursor to the other
+side of the selection box. This allows you to expand the selection in the
+other direction.
 
 ==== Visual Line ====
 
-Press shift-v to active visual line selection. Use motions like j, k, }, and { to expand the area of
-the selection.
+Press shift-v to active visual line selection. Use motions like j, k, }, and
+{ to expand the area of the selection.
 
 You can then use the same commands as a visual selection to modify the text.
 
-Visual line is great when you need to to move, delete or yank large portions of text.
+Visual line is great when you need to to move, delete or yank large portions
+of text.
 
-Remember that if you need to delete or yank a paragraph (paragraph means all the lines are
-touching) then dap and yap are faster than doing a visual line selection.
+Remember that if you need to delete or yank a paragraph (paragraph means all
+the lines are touching) then dap and yap are faster than doing a visual line
+selection.
 
 ==== Visual Block ====
 
-Press control-v to activate visual block selection. Visual block is unique because you can select
-characters across columns.
+Press control-v to activate visual block selection. Visual block is unique
+because you can select characters across columns.
 
-Use visual-block mode to fixup similar looking text on multipe lines. Consider this text:
+Use visual-block mode to fixup similar looking text on multipe lines.
+Consider this text:
 
 htis is a typo
 htis is a typo
 htis is a typo
 htis is a typo
 
-You could use visual block to highlight the "ht" in the first line, then hit 3j, type c, then th,
-then <escape>. This would fix the typo on all of the lines.
+You could use visual block to highlight the "ht" in the first line, then
+hit 3j, type c, then th, then <escape>. This would fix the typo on all of
+the lines.
 
 The standard selection commands work with visual block:
 
@@ -603,14 +659,15 @@ x or d to delete
 c to change
 y to yank
 
-I to insert text. I is unique to visual block. Note that you will only see your newly inserted text
-on the first line until you hit <escape>, then you will see it inserted on every line.
+I to insert text. I is unique to visual block. Note that you will only see
+your newly inserted text on the first line until you hit <escape>, then you
+will see it inserted on every line.
 
 
 ==== Substitute Across a Selection ====
 
-Once you've made a visual selection of any kind you can use the substitute ex command to make a
-substitution across the selected text.  Here's how:
+Once you've made a visual selection of any kind you can use the substitute
+ex command to make a substitution across the selected text.  Here's how:
 
 1. Make a visual selection
 
@@ -619,33 +676,36 @@ substitution across the selected text.  Here's how:
 3. Type s/old/new/g and hit enter to make your substitution.
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 
 Chapter 10: File Management
 
 ==== Saving ====
 
-If you've made changes to a file you will see a [+] symbol next to the name of the file in the
-status line.
+If you've made changes to a file you will see a [+] symbol next to the name
+of the file in the status line.
 
 To save your changes to a file type :w and hit enter (w for write).
 
 
 ==== Quitting ====
 
-To quit out of a file, type :q . If you've made changes without saving then Vim will give you the
-error: "No write since last change."
+To quit out of a file, type :q . If you've made changes without saving then
+Vim will give you the error: "No write since last change."
 
-If you want to ignore your changes and not write the file type :q! to get out of the file.
+If you want to ignore your changes and not write the file type :q! to get
+out of the file.
 
-If you want to save your changes and quit, type :w, then :q . Naturally, this can be abbreviated
-into :wq or :x. They both do the same thing. I prefer :x because it's one less character than :wq.
+If you want to save your changes and quit, type :w, then :q . Naturally,
+this can be abbreviated into :wq or :x. They both do the same thing. I
+prefer :x because it's one less character than :wq.
 
 
 ==== Opening a File & Splits ====
 
-:edit <filename>, or :e for short, will open the file in your current window
+:edit <filename>, or :e for short, will open the file in your current
+window
 
 :split <filename>, or :sp, will open the file in a horizontal split.
 
@@ -653,9 +713,11 @@ into :wq or :x. They both do the same thing. I prefer :x because it's one less c
 
 You can open as many splits as you want.
 
-To switch from one split to another type control-w <direction>. Direction can be h, j, k, or l.
+To switch from one split to another type control-w <direction>. Direction
+can be h, j, k, or l.
 
-To move the arrangement of a split, type control-w <DIRECTION>, where direction is H, J, K, or L.
+To move the arrangement of a split, type control-w <DIRECTION>, where
+direction is H, J, K, or L.
 
 
 ==== Tabs ====
@@ -673,31 +735,34 @@ gT will take you to the previous tab
 :e <path/to/directory> will open a directory
 :e .  will open the current directory
 
-While in the directory view use j and k to move up and down file names, and enter to open the file
-or directory under the cursor.
+While in the directory view use j and k to move up and down file names, and
+enter to open the file or directory under the cursor.
 
 
 ==== Renaming a File ====
 
-Vim has trouble doing this by itself. It has a :saveas command, but this won't remove the previously
-named file.
+Vim has trouble doing this by itself. It has a :saveas command, but this
+won't remove the previously named file.
 
-Tim Pope wrote plugin called Eunuch which will handle renaming with the :Rename command. I will
-cover plugins in a later chapter.
+Tim Pope wrote plugin called Eunuch which will handle renaming with the
+:Rename command. I will cover plugins in a later chapter.
 
 See Eunuch: https://github.com/tpope/vim-eunuch
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
 
 #todo
 Chapter 11: Staying Dry
 
-Whenever you are using Vim, the following mantra should be running through your head:
+Whenever you are using Vim, the following mantra should be running through
+your head:
 
 One Keystroke to Move, One Keystroke to Execute.
 
-It's a mantra, so we'll need to say it a few more times to get that mantra-feeling.
+It's a mantra, so we'll need to say it a few more times to get that
+mantra-feeling.
 
 One Keystroke to Move, One Keystroke to Execute.
 
@@ -705,7 +770,8 @@ One Keystroke to Move, One Keystroke to Execute.
 
 One Keystroke to Move, One Keystroke to Execute.
 
-Ok, now you've been indoctrinated into the Vim cult, let me show you some more ways to stay dry.
+Ok, now you've been indoctrinated into the Vim cult, let me show you some
+more ways to stay dry.
 
 ==== Dot Operator ====
 
@@ -714,7 +780,7 @@ Ok, now you've been indoctrinated into the Vim cult, let me show you some more w
 
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 
 Chapter 12: Mappings & Vimrc
@@ -726,21 +792,23 @@ Vim allows you to map any key to any other key. For example:
 
 :map x :echo 'hi'<cr>
 
-If you type that then hit x you will see 'hi' printed on the command line. We don't want to keep
-this mapping, so let's get rid of it.
+If you type that then hit x you will see 'hi' printed on the command line.
+We don't want to keep this mapping, so let's get rid of it.
 
 :unmap x
 
-When mapping commands you should almost always prefix the mapping with 'nore', which stands for
-non-recursive. This means that the mapping will look to the true vim commands for the sequence it's
-using instead of looking at another vim mapping. This prevents any unwanted recursion or une in mapping
-commands. A typical mapping should look like this:
+When mapping commands you should almost always prefix the mapping with
+'nore', which stands for non-recursive. This means that the mapping will
+look to the true vim commands for the sequence it's using instead of
+looking at another vim mapping. This prevents any unwanted recursion or une
+in mapping commands. A typical mapping should look like this:
 
 :noremap <keystroke to map> <keystroke to use>
 
-If you try ":noremap x p", you'll see that x will will do a put. However, if you enter insert mode
-then type x you will see x, not p. That's because mapping defaults to normal mode only. If you want
-to make a mapping specifically for insert mode, you would have to do:
+If you try ":noremap x p", you'll see that x will will do a put. However,
+if you enter insert mode then type x you will see x, not p. That's because
+mapping defaults to normal mode only. If you want to make a mapping
+specifically for insert mode, you would have to do:
 
 :inoremap <keystroke to map> <keystroke to use>
 
@@ -768,20 +836,22 @@ Note that modifier keys have their own representations:
 <esc> for escape
 <leader> for \
 
-To make a mapping that requires a modifier to be held down at the same time as another key, use a
-dash. For example, to map control-l to control-l + w you would do this:
+To make a mapping that requires a modifier to be held down at the same time
+as another key, use a dash. For example, to map control-l to control-l + w
+you would do this:
 
 :noremap <C-l> <C-w>l
 
 
 ==== Vimrc ====
 
-Vim will automatically look for and load a .vimrc file in your home directory when it starts. Your
-vimrc file is a great place to put your personal settings and mappings.
+Vim will automatically look for and load a .vimrc file in your home
+directory when it starts. Your vimrc file is a great place to put your
+personal settings and mappings.
 
-Officially, vimrc files are written in what's called Vimscript. But you don't need to know any real
-Vimscript to make a useful vimrc. Just take ex commands, like :set ic, and place them in the file
-without the colon.
+Officially, vimrc files are written in what's called Vimscript. But you
+don't need to know any real Vimscript to make a useful vimrc. Just take ex
+commands, like :set ic, and place them in the file without the colon.
 
 An example vimrc file might look like this:
 
@@ -812,81 +882,89 @@ set pastetoggle=<F10>
 I turned my vimrc into a plugin called vim-quickdraw. You can check it out at
 https://github.com/vicramon/vim-quickdraw.
 
-If you end up creating a bunch of personal mappings and settings then I highly suggest that you also
-make your vimrc a plugin. It's very easy, and it keeps your code under version control and
-accessible from any other computer.
+If you end up creating a bunch of personal mappings and settings then I
+highly suggest that you also make your vimrc a plugin. It's very easy, and
+it keeps your code under version control and accessible from any other
+computer.
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 
 Chapter 13: Color Schemes
 
 ==== Basic Usage ====
 
-You have to like the look of your terminal if you're going to be in it all day. Vim comes with quite
-a few color schemes. To see them:
+You have to like the look of your terminal if you're going to be in it all
+day. Vim comes with quite a few color schemes. To see them:
 
 1. Type :colo
 2. Hit tab. You should see a list of available color schemes.
 3. Type the name of the color scheme you want to try, then hit enter.
 
-I am sort of a color scheme fanatic myself, and I eventually settled on two color schemes that I
-like the most.
+I am sort of a color scheme fanatic myself, and I eventually settled on two
+color schemes that I like the most.
 
 
 ==== Solarized ====
 
-Solarized is a low contrast color scheme that's really easy on your eyes. It's one of the most
-popular color schemes for Vim, for good reason. It has a grey-blue background that might seem odd at
-first, but becomes really pleasant once you spend some time with it.
+Solarized is a low contrast color scheme that's really easy on your eyes.
+It's one of the most popular color schemes for Vim, for good reason. It has
+a grey-blue background that might seem odd at first, but becomes really
+pleasant once you spend some time with it.
 
 Get it here: https://github.com/altercation/vim-colors-solarized
 
 
 ==== Molokai ====
 
-Molokai is a fantastic color scheme. It has a dark background and vibrant colors. It's my second
-favorite after Solarized.
+Molokai is a fantastic color scheme. It has a dark background and vibrant
+colors. It's my second favorite after Solarized.
 
 Get it here: https://github.com/tomasr/molokai
 
 
 ==== Others ====
 
-Some other popular color schemes are Railscasts, Badwolf, Vividchalk, Codeschool, and Pyte.
+Some other popular color schemes are Railscasts, Badwolf, Vividchalk,
+Codeschool, and Pyte.
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
 
 Chapter 14: Plugins
 
-I could write an entirely different guide just covering plugins, so I'm just going to provide an
-overview of some of the most popular Vim plugins.
+I could write an entirely different guide just covering plugins, so I'm
+just going to provide an overview of some of the most popular Vim plugins.
 
 
 ==== Pathogen ====
 
-Pathogen is a plugin manager for Vim. It automatically sources all of the files that come with a
-plugin.
+Pathogen is a plugin manager for Vim. It automatically sources all of the
+files that come with a plugin.
 
-The instructions to setup Pathogen are located here: https://github.com/tpope/vim-pathogen
+The instructions to setup Pathogen are located here:
+https://github.com/tpope/vim-pathogen
 
-Once you have Pathogen installed, simply put your plugins in ~/.vim/bundle to have them sourced.
+Once you have Pathogen installed, simply put your plugins in ~/.vim/bundle
+to have them sourced.
 
 
 ==== SuperTab ====
 
-SuperTab  is a great plugin for text completion. Vim comes with text completion built in, but
-SuperTab is much more intuitive -- you simply press tab to autocomplete.
+SuperTab  is a great plugin for text completion. Vim comes with text
+completion built in, but SuperTab is much more intuitive -- you simply
+press tab to autocomplete.
 
 See: https://github.com/ervandew/supertab
 
 
 ==== Vim Surround ====
 
-Vim Surround provides mappings to easily add, modify, or delete characters that surround words like
-(, [, ', and ".  This comes in handy all the time when writing code.
+Vim Surround provides mappings to easily add, modify, or delete characters
+that surround words like (, [, ', and ".  This comes in handy all the time
+when writing code.
 
 See: https://github.com/tpope/vim-surround
 
@@ -900,16 +978,17 @@ See: https://github.com/tpope/vim-eunuch
 
 ==== Rails.vim ====
 
-If you're writing Rails apps with Vim then Rails.vim is indispensable. It provides ex commands to
-help you quickly open the right file from anywhere within your app.
+If you're writing Rails apps with Vim then Rails.vim is indispensable. It
+provides ex commands to help you quickly open the right file from anywhere
+within your app.
 
 See: https://github.com/tpope/vim-rails
 
 
 ==== Vim Airline ====
 
-Vim Airline makes your status line more useful. For example it changes colors depending on what mode
-you are in. It's also highly configurable.
+Vim Airline makes your status line more useful. For example it changes
+colors depending on what mode you are in. It's also highly configurable.
 
 See: https://github.com/bling/vim-airline
 
@@ -917,36 +996,43 @@ See: https://github.com/bling/vim-airline
 
 #todo
 
-----------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
 
 Chapter 15: Additional Resources
 
-There are many resources out there to help you learn and master Vim. Here are some of my favorites:
+There are many resources out there to help you learn and master Vim. Here
+are some of my favorites:
 
-The book "Practical Vim", by Drew Neil is truly great. I think it's required reading if you really
-want to improve your Vim-fu. Drew also does screencasts at www.vimcasts.org.
+The book "Practical Vim", by Drew Neil is truly great. I think it's
+required reading if you really want to improve your Vim-fu. Drew also does
+screencasts at www.vimcasts.org.
 
-If you want to learn more about Vimscript check out "Learn Vimscript the Hard Way", by Steve Losh.
-It's a great resource for anyone that wants to write serious Vim plugins.
+If you want to learn more about Vimscript check out "Learn Vimscript the
+Hard Way", by Steve Losh.  It's a great resource for anyone that wants to
+write serious Vim plugins.
 
-I wrote a flashcard-style learning program for Vim called Vim Genius. You can play for free at
-www.vimgenius.com.
+I wrote a flashcard-style learning program for Vim called Vim Genius. You
+can play for free at www.vimgenius.com.
 
-vim.wikia.com has quite a bit of information. You will surely come across this site if you do much
-Googling about Vim.
+vim.wikia.com has quite a bit of information. You will surely come across
+this site if you do much Googling about Vim.
 
-Here is a great image of a keyboard overlaid with all the Vim commands and their actions:
-http://www.viemu.com/vi-vim-cheat-sheet.gif
+Here is a great image of a keyboard overlaid with all the Vim commands and
+their actions: http://www.viemu.com/vi-vim-cheat-sheet.gif
 
 And of course there's always StackOverflow and your old buddy :help.
 
 
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
 
 ==== Conclusion ====
 
-Congratulations on making it to the end of this tutorial. You will surely be a better Vimmer if
-you can process all this information and integrate it into your workflow.
+Congratulations on making it to the end of this tutorial. You will surely
+be a better Vimmer if you can process all this information and integrate it
+into your workflow.
 
 Please send any feedback or suggestions to vic@vicramon.com.
 
