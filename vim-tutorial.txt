@@ -51,13 +51,6 @@ Vim comes with an incredibly detailed built in manual. Just type :help
 in a horizontal split. Just type :q<enter> to close the manual.
 
 
-==== Basic Terminology ====
-
-The line at the very bottom of Vim which shoud currently be empty is called
-the "command line". The second to last line at the bottom of Vim wich has
-the name this file is called the "status line".
-
-
 Enough with the formalities, let's begin!
 
 
@@ -591,6 +584,12 @@ in a later chapter, just know that if you feel like something sucks in Vim
 you can usually make a mapping that fixes it.
 
 
+==== Pasting From Insert Mode ====
+
+ctrl-r "  will paste the unnamed register while in insert mode
+crtl-r 0  will paste the 0 register while in insert mode
+
+
 ---------------------------------------------------------------------------
 
 
@@ -683,9 +682,6 @@ Chapter 10: File Management
 
 ==== Saving ====
 
-If you've made changes to a file you will see a [+] symbol next to the name
-of the file in the status line.
-
 To save your changes to a file type :w and hit enter (w for write).
 
 
@@ -697,9 +693,9 @@ Vim will give you the error: "No write since last change."
 If you want to ignore your changes and not write the file type :q! to get
 out of the file.
 
-If you want to save your changes and quit, type :w, then :q . Naturally,
-this can be abbreviated into :wq or :x. They both do the same thing. I
-prefer :x because it's one less character than :wq.
+If you want to save your changes and quit, type :w, then :q . This can be
+abbreviated into :wq or :x. They both do the same thing. I prefer :x because
+it's one less character than :wq.
 
 
 ==== Opening a File & Splits ====
@@ -753,31 +749,38 @@ See Eunuch: https://github.com/tpope/vim-eunuch
 ---------------------------------------------------------------------------
 
 
-#todo
-Chapter 11: Staying Dry
+Chapter 11: Staying DRY
 
-Whenever you are using Vim, the following mantra should be running through
-your head:
+You should never have to repeat yourself while using Vim.
 
-One Keystroke to Move, One Keystroke to Execute.
+Here are a few ways to save keystrokes.
 
-It's a mantra, so we'll need to say it a few more times to get that
-mantra-feeling.
-
-One Keystroke to Move, One Keystroke to Execute.
-
-One Keystroke to Move, One Keystroke to Execute.
-
-One Keystroke to Move, One Keystroke to Execute.
-
-Ok, now you've been indoctrinated into the Vim cult, let me show you some
-more ways to stay dry.
 
 ==== Dot Operator ====
 
+. will repeat your last command.
 
-==== Macro ====
+The dot operator can also be played across a visual selection by making a
+selection, then typing :norm .  The norm stands for normal mode, which is the
+mode you want the commands to actually be executed in.
 
+
+==== Macros ====
+
+Macros are a neat and often underused feature of Vim. A macro is a recording of
+your keystrokes that can be replayed. Here's how to use them:
+
+1. Press qq to start recording
+2. Press q again to stop recording
+3. Type :@q to play your macro
+
+Marcos can also be played across a visual selection with :norm @q
+
+One trick with macros is to make 0 the first key you record. This will place
+your cursor at the beginning of the line, helping standardize the way the
+marcro will be played. This is important because your macro will always use the
+current cursor location as it's starting point, so you often need to press 0 or
+^ to first to consistently get the correct result.
 
 
 ---------------------------------------------------------------------------
@@ -994,7 +997,18 @@ See: https://github.com/bling/vim-airline
 
 ==== Tmux ====
 
-#todo
+Tmux isn't a Vim plugin, but it needs mentioning because it works so well
+alongside Vim.
+
+Tmux is a terminal multiplexer, meaning that it allows you to have multiple
+terminal sessions running in one terminal window. It provides keystroke
+mappings to open, close, and cycle through terminal windows. I highly recommend
+checking it out if you want to improve your virtual workspace.
+
+Tmux, like Vim, is highly configurable. Between Tmux and Vim, you may never
+need to use your mouse again.  need your mouse anymore while coding.
+
+See: http://tmux.sourceforge.net
 
 
 ---------------------------------------------------------------------------
