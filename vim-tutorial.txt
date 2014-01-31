@@ -3,7 +3,7 @@
 ----------------------------------------------
 
 Version:   0.1
-Published: 1/29/2014
+Published: 1/30/2014
 
 ==== Preface ====
 
@@ -11,7 +11,8 @@ Welcome! This is tutorial teaches the philosophy of Vim and all the commands
 that you should know for day-to-day use actually coding with Vim.
 
 Vim's abilities are vast. It would be easy for me to take up a lot of space
-without being an effective teacher, so I have carefully curated this guide to only include commands that I use every day.
+without being an effective teacher, so I have carefully curated this guide to
+only include commands that I use every day.
 
 Please send any feedback or questions to vic@vicramon.com.
 
